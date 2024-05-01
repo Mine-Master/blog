@@ -23,10 +23,10 @@ const DetailsCard = () => {
           `${config.api}/api/news-and-events/${id}/?populate=*`,
         );
         const data = await response.json();
+
         setDetails(data);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching details:', error);
         setLoading(false);
       }
     };
@@ -34,9 +34,6 @@ const DetailsCard = () => {
     fetchDetails();
   }, [id]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
   if (loading) {
     return <ThreeDotLoading />;
   }

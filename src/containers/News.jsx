@@ -13,7 +13,6 @@ import {
   TEXT_32_700,
   TEXT_48_700,
 } from '../styles/global-typography';
-
 import { PrimaryButton } from '../components/primary';
 import { useNavigate } from 'react-router-dom';
 import config from '../config';
@@ -43,7 +42,8 @@ const News = () => {
         const data = await response.json();
         setBlog(data);
       } catch (error) {
-        console.error('Error fetching blog:', error);
+        setTimeout(fetchBlog, 1000);
+        setBlog({ data: [] });
       }
     };
 
